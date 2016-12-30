@@ -517,4 +517,5 @@ Public Class HexFileManager
         FileReader = Nothing
         Return True
     End Function
+
 End Class

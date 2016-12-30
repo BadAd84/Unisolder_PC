@@ -389,36 +389,50 @@ Public Class Form2
         Dim cResult As Int32
         Dim sst As New Stopwatch
         Dim ss As New HexFileManager
+        Dim HexFilePath As OpenFileDialog = New OpenFileDialog()
+        Dim strFileName As String
         'Dim bb(1000) As Byte
-        If ss.LoadHexFile("C:\Users\Sparky\Desktop\MyProjects\Electronics\UniSolder\software\front\US_Firmware.X\dist\PIC32_with_bootloader\production\US_Firmware.X.production.hex") Then
-            Debug.Print("Hex File loaded successfully")
 
-            Debug.Print("Erasing Flash...")
-            sst.Restart()
-            lUniSolder.BlEraseFlash()
-            sst.Stop()
-            Debug.Print("Erasing completed in " & sst.Elapsed.ToString)
+        HexFilePath.Title = "Select Firmware Update..."
+        HexFilePath.InitialDirectory = "C:\"
+        HexFilePath.Filter = "Hex Files (*.hex)|*.hex"
+        HexFilePath.FilterIndex = 2
+        HexFilePath.Multiselect = False
+        HexFilePath.RestoreDirectory = True
 
-            Debug.Print("Programming started...")
-            sst.Restart()
-            For i = 0 To ss.HexDataRecordsCount - 1
-                With ss.HexDataRecords(i)
-                    cResult = lUniSolder.BlProgramFlash(.Address, .Data, 0, .RecDataLen)
-                    Select Case cResult
-                        Case 0
-                            'Debug.Print(i & "(" & Format(.Address, "X8") & "," & .RecDataLen & ")")
-                        Case -1
-                            Debug.Print("(" & i & "):Time Out")
-                        Case Else
-                            Debug.Print("(" & i & "):Error(" & cResult & ")")
-                    End Select
-                End With
-                If cResult <> 0 Then Exit For
-            Next
-            lUniSolder.BlProgramComplete()
-            sst.Stop()
-            Debug.Print("Programming completed in " & sst.Elapsed.ToString)
+        If HexFilePath.ShowDialog() = DialogResult.OK Then
+            strFileName = HexFilePath.FileName
+            If ss.LoadHexFile(strFileName) Then
+                Debug.Print("Hex File loaded successfully")
+
+                Debug.Print("Erasing Flash...")
+                sst.Restart()
+                lUniSolder.BlEraseFlash()
+                sst.Stop()
+                Debug.Print("Erasing completed in " & sst.Elapsed.ToString)
+
+                Debug.Print("Programming started...")
+                sst.Restart()
+                For i = 0 To ss.HexDataRecordsCount - 1
+                    With ss.HexDataRecords(i)
+                        cResult = lUniSolder.BlProgramFlash(.Address, .Data, 0, .RecDataLen)
+                        Select Case cResult
+                            Case 0
+                                'Debug.Print(i & "(" & Format(.Address, "X8") & "," & .RecDataLen & ")")
+                            Case -1
+                                Debug.Print("(" & i & "):Time Out")
+                            Case Else
+                                Debug.Print("(" & i & "):Error(" & cResult & ")")
+                        End Select
+                    End With
+                    If cResult <> 0 Then Exit For
+                Next
+                lUniSolder.BlProgramComplete()
+                sst.Stop()
+                Debug.Print("Programming completed in " & sst.Elapsed.ToString)
+            End If
         End If
+
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
