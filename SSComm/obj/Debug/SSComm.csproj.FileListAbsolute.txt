@@ -1,0 +1,12 @@
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\bin\Debug\SSComm.dll
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\bin\Debug\SSComm.pdb
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\bin\Debug\LibUsbDotNet.dll
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.dll
+C:\Users\Adam\Desktop\uni\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.pdb
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\bin\Debug\SSComm.dll
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\bin\Debug\SSComm.pdb
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\bin\Debug\LibUsbDotNet.dll
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.dll
+C:\Users\Adam\Desktop\unisolder\UniSolder52_Software (2)\PC\SSComm\obj\Debug\SSComm.pdb
